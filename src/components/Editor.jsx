@@ -2,13 +2,7 @@ import { useState, useEffect } from 'react'
 import '../App.css'
 
 
-export default function Editor({ className, submitEntry, currentNote, handleNoteChange }) {
-
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        submitEntry(e)
-    }
+export default function Editor({ className, setTempNoteText, tempNoteText }) {
 
 
     return (
@@ -17,8 +11,8 @@ export default function Editor({ className, submitEntry, currentNote, handleNote
                 className={className}
                 name="entry"
                 id="entry"
-                value={currentNote.entry}
-                onChange={(e) => handleNoteChange(e)}
+                value={tempNoteText}
+                onChange={(e) => setTempNoteText(e.target.value)}
                 rows="10"
                 cols="30"
                 style={{ display: "flex", margin: "1rem" }} />
